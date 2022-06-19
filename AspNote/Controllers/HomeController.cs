@@ -5,9 +5,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using rabbit.Models;
+using AspNote.Models;
 
-namespace rabbit.Controllers
+namespace AspNote.Controllers
 {
     public class HomeController : Controller
     {
@@ -20,17 +20,7 @@ namespace rabbit.Controllers
 
         public IActionResult Index()
         {
-            var yeraUser = new User()
-            {
-                UserNo = 1,
-                UserName = "YeraLee"
-            };
-            // firstUser.UserNo = 1;
-            // firstUser.UserName = "YeraLee";
-            //
-            ViewBag.User = yeraUser;
-            ViewData["UserName"] = yeraUser.UserName;
-            return View(yeraUser);
+            return View();
         }
 
         public IActionResult Privacy()
