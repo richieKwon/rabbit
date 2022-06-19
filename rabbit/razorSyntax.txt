@@ -1,0 +1,15 @@
+1. @
+2. if, for, foreach 
+3. data type: string > int or int > string
+
+
+@{
+var name = "Yera"
+}
+ 
+<h1>@name</h1> 
+
+server side rendering
+
+When sending data to view, view page receive the object as Model
+<h1>User Number: @Model.UserNo</h1>

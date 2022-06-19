@@ -20,7 +20,16 @@ namespace rabbit.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var yeraUser = new User()
+            {
+                UserNo = 1,
+                UserName = "YeraLee"
+            };
+            // firstUser.UserNo = 1;
+            // firstUser.UserName = "YeraLee";
+            //
+            ViewBag.User = yeraUser;
+            return View(yeraUser);
         }
 
         public IActionResult Privacy()
