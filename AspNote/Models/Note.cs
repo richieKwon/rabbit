@@ -19,5 +19,5 @@ namespace AspNote.Models
 
         [ForeignKey("UserNo")]
         public virtual User User { get; set; }
-    } 
+    }  
 }

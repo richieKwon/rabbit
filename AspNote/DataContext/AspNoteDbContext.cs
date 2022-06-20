@@ -1,5 +1,6 @@
 using AspNote.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 
 namespace AspNote.DataContext
 {
@@ -11,7 +12,7 @@ namespace AspNote.DataContext
         // DB connection
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseMySQL("Server=127.0.0.0;Database=myDataBase;Uid=root;Pwd=dookie91Sql!;");
+            optionsBuilder.UseMySQL(@"Server=127.0.0.0;Database=myNoteDb;Uid=root;Pwd=dookie91Sql!;");
         }
     } 
 }
