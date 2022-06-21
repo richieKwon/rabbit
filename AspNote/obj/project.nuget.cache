@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "5prTnjc7NdMmKAsXk9b+3o+OTQFz7STayrUSaRXkTz6HjmMEp7kWcS+2gz12IliBS6dE2J5u68yVP9KmVSrSaA==",
+  "dgSpecHash": "vV4FxIZr009nspHD1MPCRlq6h2Oe0SfbWsu/h6heMtpT/sCuJ6cHyaVZEvUYw0Oanb08xiM5sH6PJ5HpLdZTsg==",
   "success": true,
   "projectFilePath": "/Users/richie/RiderProjects/rabbit/AspNote/AspNote.csproj",
   "expectedPackageFiles": [
@@ -31,7 +31,6 @@
     "/Users/richie/.nuget/packages/mysql.data/8.0.29/mysql.data.8.0.29.nupkg.sha512",
     "/Users/richie/.nuget/packages/mysql.entityframeworkcore/5.0.13/mysql.entityframeworkcore.5.0.13.nupkg.sha512",
     "/Users/richie/.nuget/packages/mysqlconnector/2.1.10/mysqlconnector.2.1.10.nupkg.sha512",
-    "/Users/richie/.nuget/packages/pomelo.entityframeworkcore.mysql/5.0.4/pomelo.entityframeworkcore.mysql.5.0.4.nupkg.sha512",
     "/Users/richie/.nuget/packages/system.buffers/4.5.1/system.buffers.4.5.1.nupkg.sha512",
     "/Users/richie/.nuget/packages/system.collections.immutable/5.0.0/system.collections.immutable.5.0.0.nupkg.sha512",
     "/Users/richie/.nuget/packages/system.componentmodel.annotations/5.0.0/system.componentmodel.annotations.5.0.0.nupkg.sha512",

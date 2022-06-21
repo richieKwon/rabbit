@@ -6,13 +6,17 @@ namespace AspNote.DataContext
 {
     public class AspNoteDbContext : DbContext
     {
-        public DbSet<User> Users { get; set; }
+        public AspNoteDbContext(DbContextOptions<AspNoteDbContext> options): base(options)
+        {
+            
+        }
+        public DbSet<User> Users { get; set; } 
         public DbSet<Note> Notes { get; set; }
         
         // DB connection
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseMySQL(@"Server=127.0.0.0;Database=myNoteDb;Uid=root;Pwd=dookie91Sql!;");
-        }
+        // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        // {
+        //     optionsBuilder.UseMySQL(@"Server=127.0.0.0;Database=myNoteDb;Uid=root;Pwd=dookie91Sql!;");
+        // }
     } 
 }

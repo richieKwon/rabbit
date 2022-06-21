@@ -9,8 +9,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace AspNote
 {
@@ -27,20 +27,31 @@ namespace AspNote
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddDbContext<AspNoteDbContext>(options =>
-            {
-                // string connectionString = AppConfig.Configuration.GetConnectionString("DefaultConnection");
-                string connectionString = "Server=127.0.0.0;Database=myNoteDb;Uid=root;Pwd=dookie91Sql!;";
+            services.AddCors();
+            services.AddDbContext<AspNoteDbContext>(options => options.UseMySQL(Configuration.GetConnectionString("Default")));
+                
+                 
+            // services.AddDbContext<AspNoteDbContext>(
+            //     options =>
+            //         options.UseMySql(Configuration.GetConnectionString("DatabaseConnectionString"),
+            //             new MySqlServerVersion(new Version()),
+            //             mySqlOptionsAction: options => { options.EnableRetryOnFailure(); }));
+            services.AddMvc();
 
-                options.UseMySql(connectionString,
-                    ServerVersion.AutoDetect(connectionString),
-                    mySqlOptions =>
-                        mySqlOptions.EnableRetryOnFailure(
-                            maxRetryCount: 10,
-                            maxRetryDelay: TimeSpan.FromSeconds(30),
-                            errorNumbersToAdd: null)
-                );
-            });
+            //     services.AddDbContext<AspNoteDbContext>(options =>
+            //     {
+            //         // string connectionString = AppConfig.Configuration.GetConnectionString("DefaultConnection");
+            //         string connectionString = "Server=127.0.0.0;Database=myNoteDb;Uid=root;Pwd=dookie91Sql!;";
+            //
+            //         options.UseMySql(connectionString,
+            //             ServerVersion.AutoDetect(connectionString),
+            //             mySqlOptions =>
+            //                 mySqlOptions.EnableRetryOnFailure(
+            //                     maxRetryCount: 10,
+            //                     maxRetryDelay: TimeSpan.FromSeconds(30),
+            //                     errorNumbersToAdd: null)
+            //         );
+            //     });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
