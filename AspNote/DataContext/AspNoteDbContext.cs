@@ -19,4 +19,4 @@ namespace AspNote.DataContext
         //     optionsBuilder.UseMySQL(@"Server=127.0.0.0;Database=myNoteDb;Uid=root;Pwd=dookie91Sql!;");
         // }
     } 
-}
+} 
