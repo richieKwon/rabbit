@@ -766,6 +766,20 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
+      "Pomelo.EntityFrameworkCore.MySql/5.0.4": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Relational": "[5.0.10, 6.0.0)",
+          "Microsoft.Extensions.DependencyInjection": "5.0.2",
+          "MySqlConnector": "1.3.13"
+        },
+        "compile": {
+          "lib/netstandard2.1/Pomelo.EntityFrameworkCore.MySql.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/Pomelo.EntityFrameworkCore.MySql.dll": {}
+        }
+      },
       "System.Buffers/4.5.1": {
         "type": "package",
         "compile": {
@@ -2806,6 +2820,20 @@
         "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
         "newtonsoft.json.11.0.2.nupkg.sha512",
         "newtonsoft.json.nuspec"
+      ]
+    },
+    "Pomelo.EntityFrameworkCore.MySql/5.0.4": {
+      "sha512": "R5LDFDaCO/Si09tEWbgQoYwLsCYPG3Qm6Q7zICFDF8zZ7gr64fgyBLBtOxhGtJBmbpImFVI6GfcYf2JAROGaZA==",
+      "type": "package",
+      "path": "pomelo.entityframeworkcore.mysql/5.0.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "icon.png",
+        "lib/netstandard2.1/Pomelo.EntityFrameworkCore.MySql.dll",
+        "lib/netstandard2.1/Pomelo.EntityFrameworkCore.MySql.xml",
+        "pomelo.entityframeworkcore.mysql.5.0.4.nupkg.sha512",
+        "pomelo.entityframeworkcore.mysql.nuspec"
       ]
     },
     "System.Buffers/4.5.1": {
@@ -4877,7 +4905,8 @@
       "Microsoft.EntityFrameworkCore.Tools >= 5.0.17",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 5.0.2",
       "MySql.EntityFrameworkCore >= 5.0.13",
-      "MySqlConnector >= 2.1.10"
+      "MySqlConnector >= 2.1.10",
+      "Pomelo.EntityFrameworkCore.MySql >= 5.0.4"
     ]
   },
   "packageFolders": {
@@ -4940,6 +4969,10 @@
           "MySqlConnector": {
             "target": "Package",
             "version": "[2.1.10, )"
+          },
+          "Pomelo.EntityFrameworkCore.MySql": {
+            "target": "Package",
+            "version": "[5.0.4, )"
           }
         },
         "imports": [

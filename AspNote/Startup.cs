@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 
 namespace AspNote
 {
@@ -28,8 +29,26 @@ namespace AspNote
         {
             services.AddControllersWithViews();
             services.AddCors();
-            services.AddDbContext<AspNoteDbContext>(options => options.UseMySQL(Configuration.GetConnectionString("Default")));
+            services.AddDbContext<AspNoteDbContext>(options => options.UseMySQL(
+                Configuration.GetConnectionString("Default")));
                 
+            // services.AddDbContextPool<AspNoteDbContext>(options =>
+            // {
+            //     string connectionString = Configuration.GetConnectionString("Default");
+            //     options.UseMySql(connectionString,
+            //             ServerVersion.AutoDetect(connectionString),
+            //             mySqlOptions =>
+            //                 mySqlOptions.EnableRetryOnFailure(
+            //                     maxRetryCount: 10,
+            //                     maxRetryDelay: TimeSpan.FromSeconds(30),
+            //                     errorNumbersToAdd: null)
+            //         );
+            // });
+              
+            
+            
+            
+            
                  
             // services.AddDbContext<AspNoteDbContext>(
             //     options =>
