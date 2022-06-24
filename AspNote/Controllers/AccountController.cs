@@ -15,6 +15,9 @@ namespace AspNote.Controllers
 {
     public class AccountController : Controller
     {
+        private readonly AspNoteDbContext _aspNoteDbContext;
+        
+        
         [HttpGet]
         public IActionResult Login()
         {
@@ -32,14 +35,27 @@ namespace AspNote.Controllers
         {
             if (ModelState.IsValid) // check if all data required(Not null) are inserted 
             {
+
                 using (var db = new AspNoteDbContext())
                 {
-                    db.Users.Add(model); // adding data into memory
-                    db.SaveChanges(); // updating database
 
-            }
+                    db.Users.Add(new User()
+                        { UserId = model.UserId, UserName = model.UserName, UserPassword = model.UserPassword });
+                    db.SaveChanges();
+                }
 
-            // string connectionString = "Server=127.0.0.0;Database=myNoteDb;Uid=root;Pwd=dookie91Sql!;";
+                // var db = new AspNoteDbContext();
+                // var newUser = new User
+                // {
+                //     UserId = model.UserId,
+                //     UserName = model.UserName,
+                //     UserPassword = model.UserPassword,
+                //     UserNo = 1
+                // };
+                // db.Users.Add(newUser);
+                // db.SaveChanges();
+                // using (var db = new AspNoteDbContext())
+                //     string connectionString = "Server=127.0.0.0;Database=myNoteDb;Uid=root;Pwd=dookie91Sql!;";
                 // using (var db = new AspNoteDbContext())
                 // {
                 //     User model1 = new User();

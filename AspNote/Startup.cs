@@ -29,9 +29,17 @@ namespace AspNote
         {
             services.AddControllersWithViews();
             services.AddCors();
-            services.AddDbContext<AspNoteDbContext>(options => options.UseMySQL(
-                Configuration.GetConnectionString("Default")));
-                
+            // services.AddDbContext<AspNoteDbContext>(options => options.UseMySQL(
+            //     Configuration.GetConnectionString("Default")));
+
+
+            string mySqlConnectionStr = Configuration.GetConnectionString("Default");
+            services.AddDbContextPool<AspNoteDbContext>(options =>
+                options.UseMySql(mySqlConnectionStr, ServerVersion.AutoDetect(mySqlConnectionStr)));
+
+            services.AddControllers();
+
+
             // services.AddDbContextPool<AspNoteDbContext>(options =>
             // {
             //     string connectionString = Configuration.GetConnectionString("Default");
@@ -44,12 +52,8 @@ namespace AspNote
             //                     errorNumbersToAdd: null)
             //         );
             // });
-              
-            
-            
-            
-            
-                 
+
+
             // services.AddDbContext<AspNoteDbContext>(
             //     options =>
             //         options.UseMySql(Configuration.GetConnectionString("DatabaseConnectionString"),

@@ -15,7 +15,7 @@ namespace AspNote.DataContext
         }
       
 
-        public AspNoteDbContext():base()
+        public AspNoteDbContext()
         {
            
         }  
@@ -34,17 +34,18 @@ namespace AspNote.DataContext
         // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         // {
         //     optionsBuilder.UseMySQL(@"Server=127.0.0.0;Database=myNoteDb;Uid=root;Pwd=dookie91Sql!;",
-        //         options => optioins.Enable);
+        //         options => optioinsBuilder.Enable);
         // }
 
-        // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        // {
-        //     
-        //     optionsBuilder.UseMySql(
-        //         ServerVersion.AutoDetect(
-        //             "Server=127.0.0.0;Database=myNoteDb;Uid=root;Pwd=dookie91Sql!;"),
-        //             options => options.EnableRetryOnFailure( ));
-        // }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseMySql(@"Server=127.0.0.0;Database=myNoteDb;Uid=root;Pwd=dookie91Sql!;");
+
+            // optionsBuilder.UseMySql(
+            //     ServerVersion.AutoDetect(
+            //         "Server=127.0.0.0;Database=myNoteDb;Uid=root;Pwd=dookie91Sql!;"),
+            //         options => options.EnableRetryOnFailure( ));
+        }
         
     } 
 } 
