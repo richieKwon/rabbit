@@ -10,11 +10,11 @@ namespace AspNote.DataContext
 {
     public class AspNoteDbContext : DbContext
     {
-        public AspNoteDbContext(DbContextOptions<AspNoteDbContext> options): base(options)
-        {
-            
-        }
-        //
+        // public AspNoteDbContext(DbContextOptions<AspNoteDbContext> options): base(options)
+        // {
+        //     
+        // }
+        // //
 
         protected readonly IConfiguration Configuration;
         public AspNoteDbContext()
@@ -22,10 +22,10 @@ namespace AspNote.DataContext
            
         }
 
-        public AspNoteDbContext(IConfiguration configuration)
-        {
-            Configuration = configuration;
-        }
+        // public AspNoteDbContext(IConfiguration configuration)
+        // {
+        //     Configuration = configuration;
+        // }
 
       
 

@@ -11,7 +11,7 @@ namespace AspNote.Models
         public string UserName { get; set; }
         
         [Required]
-        public int UserId { get; set; }
+        public string UserId { get; set; }
         
         [Required]
         public string UserPassword { get; set; }
