@@ -10,10 +10,10 @@ namespace AspNote.DataContext
 {
     public class AspNoteDbContext : DbContext
     {
-        // public AspNoteDbContext(DbContextOptions<AspNoteDbContext> options): base(options)
-        // {
-        //     
-        // }
+        public AspNoteDbContext(DbContextOptions<AspNoteDbContext> options): base(options)
+        {
+            
+        }
         //
 
         protected readonly IConfiguration Configuration;
