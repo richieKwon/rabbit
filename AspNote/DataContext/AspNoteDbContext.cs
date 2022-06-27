@@ -4,8 +4,8 @@ using AspNote.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
-using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
-
+// using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
+  
 namespace AspNote.DataContext
 {
     public class AspNoteDbContext : DbContext
@@ -14,34 +14,39 @@ namespace AspNote.DataContext
         // {
         //     
         // }
-        // //
-
-        protected readonly IConfiguration Configuration;
-        public AspNoteDbContext()
-        {
-           
-        }
+        //
+        //
+        // protected readonly IConfiguration Configuration;
+        // public AspNoteDbContext()
+        // {
+        //    
+        // }
 
         // public AspNoteDbContext(IConfiguration configuration)
         // {
         //     Configuration = configuration;
         // }
-
-      
-
         public DbSet<User> Users { get; set; } 
         public DbSet<Note> Notes { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder options)
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var connnectionString = Configuration.GetConnectionString("Default");
-            options.UseMySql(connnectionString, ServerVersion.AutoDetect(connnectionString));
+            optionsBuilder.UseSqlServer(
+                @"Server=127.0.0.1;Database=AspNote;User Id=sa;Password=richie1234Jen!;");
         }
-        // protected override void OnModelCreating(DbModelBuilder  modelBuilder)
+
+ 
+
+        // protected override void OnConfiguring(DbContextOptionsBuilder options)
         // {
-        //     base.OnModelCreating(modelBuilder);
-        //     modelBuilder.Entity<User>.MapToStoredProcedures();
+        //     var connnectionString = Configuration.GetConnectionString("Default");
+        //     options.UseMySql(connnectionString, ServerVersion.AutoDetect(connnectionString));
         // }
+        // // protected override void OnModelCreating(DbModelBuilder  modelBuilder)
+        // // {
+        // //     base.OnModelCreating(modelBuilder);
+        // //     modelBuilder.Entity<User>.MapToStoredProcedures();
+        // // }
 
 
         // DB connection

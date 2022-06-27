@@ -6,10 +6,10 @@ using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using AspNote.DataContext;
 using AspNote.Models;
-using Google.Protobuf.WellKnownTypes;
+// using Google.Protobuf.WellKnownTypes;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using MySqlConnector;
+// using MySqlConnector;
 
 namespace AspNote.Controllers
 {
