@@ -23,13 +23,45 @@ namespace AspNote.Controllers
         {
             return View();
         }
-        
+
+        [HttpPost]
+        public IActionResult Login(User model)
+        {
+            if (ModelState.IsValid)
+            {
+                using (var db = new AspNoteDbContext())
+                {
+                    // reduce memory use
+                    // var user = db.Users.FirstOrDefault(
+                    //     u=>u.UserId == model.UserId && u.UserPassword == model.UserPassword);
+                    var user = db.Users.FirstOrDefault(
+                        u=>u.UserId.Equals(model.UserId) && u.UserPassword.Equals(model.UserPassword));
+
+                    if (user == null)
+                    {
+                        ModelState.AddModelError(string.Empty, "Either of UserId or Password is not found");
+                    }
+                    else
+                    {
+                        return RedirectToAction("LoginSuccess","Home");
+                    }
+
+                }
+            }
+
+            return View(model);
+        }
+
         [HttpGet]
         public IActionResult Register()
         {
             return View();
         }
-        
+        /// <summary>
+        ///Post method for the registration 
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Register(User model)
         {
@@ -38,10 +70,8 @@ namespace AspNote.Controllers
 
                 using (var db = new AspNoteDbContext())
                 {
-
-                    db.Users.Add(new User()
-                        { UserId = model.UserId, UserName = model.UserName, UserPassword = model.UserPassword });
-                    db.SaveChanges();
+                    db.Users.Add(model); //uploading model into memeory
+                    db.SaveChanges(); // updating database
                 }
 
                 // var db = new AspNoteDbContext();

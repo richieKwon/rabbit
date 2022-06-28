@@ -18,6 +18,11 @@ namespace AspNote.Controllers
             _logger = logger;
         }
 
+        public IActionResult LoginSuccess()
+        {
+            return View();
+        }
+
         public IActionResult Index()
         {
             return View();

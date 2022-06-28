@@ -7,13 +7,13 @@ namespace AspNote.Models
         [Key]
         public int UserNo { get; set; }
         
-        [Required]
+        [Required(ErrorMessage = "Input User name!")]
         public string UserName { get; set; }
         
-        [Required]
+        [Required(ErrorMessage = "Input User ID")]
         public string UserId { get; set; }
         
-        [Required]
+        [Required(ErrorMessage = "Input correct Password")]
         public string UserPassword { get; set; }
     }
 } 

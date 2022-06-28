@@ -39,7 +39,7 @@ namespace AspNote
 
             services.AddControllers();
 
-
+  
             // services.AddDbContextPool<AspNoteDbContext>(options =>
             // {
             //     string connectionString = Configuration.GetConnectionString("Default");
