@@ -35,19 +35,16 @@ namespace AspNote.Controllers
                     // var user = db.Users.FirstOrDefault(
                     //     u=>u.UserId == model.UserId && u.UserPassword == model.UserPassword);
                     var user = db.Users.FirstOrDefault(
-                        u=>u.UserId.Equals(model.UserId) && u.UserPassword.Equals(model.UserPassword));
+                        u => u.UserId.Equals(model.UserId) && u.UserPassword.Equals(model.UserPassword));
 
                     if (user == null)
                     {
-                        ModelState.AddModelError(string.Empty, "Either of UserId or Password is not found");
+                        return RedirectToAction("LoginSuccess", "Home");
                     }
-                    else
-                    {
-                        return RedirectToAction("LoginSuccess","Home");
-                    }
-
                 }
-            }
+
+                ModelState.AddModelError(string.Empty, "Either of UserId or Password is not found");
+            } 
 
             return View(model);
         }
