@@ -8,10 +8,10 @@ namespace AspNote.Models
         [Key]
         public int NoteNo { get; set; }
         
-        [Required]
+        [Required(ErrorMessage = "Put down the title of your article")]
         public string NoteTitle { get; set; }
         
-        [Required]
+        [Required(ErrorMessage = "Type down your article")]
         public string NoteContents { get; set; }
         
         [Required]

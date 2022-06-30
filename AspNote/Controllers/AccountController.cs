@@ -41,6 +41,7 @@ namespace AspNote.Controllers
 
                     if (user != null)
                     {
+                        // contain session 
                         HttpContext.Session.SetInt32("USER_LOGIN_KEY", user.UserNo);
                         return RedirectToAction("LoginSuccess", "Home");
                     }
@@ -50,6 +51,13 @@ namespace AspNote.Controllers
             } 
 
             return View(model);
+        }
+
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Remove("USER_LOGIN_KEY");
+            // HttpContext.Session.Clear(); >> all session can be cleared 
+            return RedirectToAction("index", "Home");
         }
 
         [HttpGet]
