@@ -38,6 +38,7 @@ namespace AspNote
             //     options.UseMySql(mySqlConnectionStr, ServerVersion.AutoDetect(mySqlConnectionStr)));
 
             services.AddControllers();
+            services.AddSession();
 
   
             // services.AddDbContextPool<AspNoteDbContext>(options =>
@@ -93,6 +94,7 @@ namespace AspNote
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseSession();
 
             app.UseRouting();
 

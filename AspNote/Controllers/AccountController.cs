@@ -6,6 +6,8 @@ using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using AspNote.DataContext;
 using AspNote.Models;
+using AspNote.ViewModels;
+using Microsoft.AspNetCore.Http;
 // using Google.Protobuf.WellKnownTypes;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -25,7 +27,7 @@ namespace AspNote.Controllers
         }
 
         [HttpPost]
-        public IActionResult Login(User model)
+        public IActionResult Login(LoginViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -37,8 +39,9 @@ namespace AspNote.Controllers
                     var user = db.Users.FirstOrDefault(
                         u => u.UserId.Equals(model.UserId) && u.UserPassword.Equals(model.UserPassword));
 
-                    if (user == null)
+                    if (user != null)
                     {
+                        HttpContext.Session.SetInt32("USER_LOGIN_KEY", user.UserNo);
                         return RedirectToAction("LoginSuccess", "Home");
                     }
                 }

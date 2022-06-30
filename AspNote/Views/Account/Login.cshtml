@@ -1,7 +1,8 @@
-@model AspNote.Models.User
+@model AspNote.ViewModels.LoginViewModel
 <h2>Login</h2>
 
 <form class="form-horizontal" method="post" asp-controller="Account" asp-action="Login">
+    <div class="text-danger" asp-validation-summary="ModelOnly"></div>
     <div class="form-group">
         <label>UserId</label>
         <input type="text" asp-for="UserId" class="form-control" placeholder="Insert UserId"/>
@@ -14,5 +15,5 @@
     </div>
     <div class="form-group">
         <button type="submit" class="btn btn-success">Login</button>
-    </div>
+    </div>  
 </form>
