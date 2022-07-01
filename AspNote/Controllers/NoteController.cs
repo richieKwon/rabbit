@@ -27,6 +27,21 @@ namespace AspNote.Controllers
             
         }
 
+        public IActionResult Detail(int noteNo)
+        {
+            if (HttpContext.Session.GetInt32("USER_LOGIN_KEY")==null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
+            using (var db = new AspNoteDbContext())
+            {
+                var note = db.Notes.FirstOrDefault(n => n.NoteNo.Equals(noteNo));
+                return View(note);
+            }
+            
+        }
+
         public IActionResult Add()
         {
             if (HttpContext.Session.GetInt32("USER_LOGIN_KEY")==null)
