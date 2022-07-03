@@ -20,9 +20,9 @@
             </button>
             <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                 <ul class="navbar-nav flex-grow- ml-auto">
-                    <li class="nav-item">
+                    <li class="nav-item"> 
                         <a class="nav-link text-dark" asp-area="" asp-controller="Note" asp-action="Index">Board</a>
-                    </li>
+                    </li>    
                     
                     @if (Context.Session.GetInt32("USER_LOGIN_KEY") == null)
                     {
@@ -33,7 +33,7 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
                         </li>
                     }  
-                    else
+                    else   
                     {
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Logout">Logout</a>
@@ -59,6 +59,7 @@
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="~/lib/trumbowyg/dist/trumbowyg.min.js"></script>
+<script src="~/lib/trumbowyg/dist/plugins/upload/trumbowyg.upload.js"></script>
 <script src="~/js/site.js" asp-append-version="true"></script>
 @await RenderSectionAsync("Scripts", required: false)
 </body>
