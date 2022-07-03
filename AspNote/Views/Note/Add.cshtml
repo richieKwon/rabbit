@@ -1,18 +1,18 @@
 @model AspNote.Models.Note
 
 <div class="row">
-    <div class="col-lg-2"></div>
-    <div class="col-lg-8">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4">
         <form class="form-horizontal" method="post" asp-controller="Note" asp-action="Add">
             <div class="text-danger" asp-validation-summary="ModelOnly"></div>
-            <div class="form-group">
+            <div class="form-group">  
                 <label>Title</label>
                 <input type="text" class="form-control" asp-for="NoteTitle" placeholder="Insert the title of your article"/>
                 <span class="text-danger" asp-validation-for="NoteTitle"></span>
             </div>
             <div class="form-group">
-                <textarea class="form-control editor" cols="150" rows="5" asp-for="NoteContents" placeholder="Type down your thoughts"></textarea>
-                  <span class="text-danger" asp-validation-for="NoteContents"></span>
+                <textarea class="form-control editor" rows="20" asp-for="NoteContents" placeholder="Type down your thoughts"></textarea>
+                <span class="text-danger" asp-validation-for="NoteContents"></span>
             </div>
             <div class="form-group">
                 <button type="submit" class="btn btn-primary">Posting</button>
@@ -20,5 +20,5 @@
             </div>
         </form>
     </div>
-    <div class="col-lg-2"></div>
+    <div class="col-lg-4"></div>
 </div>
