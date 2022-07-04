@@ -20,7 +20,7 @@ namespace AspNote.Controllers
         // {
         //     _hostEnvironment = hostEnvironment;
         // }
-        public UploadController(IWebHostEnvironment webHostEnvironment)
+        public UploadController(IWebHostEnvironment webHostEnvironment)  
         {
             _webHostEnvironment = webHostEnvironment;
         }
@@ -28,18 +28,19 @@ namespace AspNote.Controllers
 
         // http://www.example.com/Upload/ImageUpload 
         // http://www.example.com/api/upload
-        [HttpPost, Route("api/upload")]
+        [HttpPost, Route("note/api/upload")]
         public IActionResult ImageUpload(IFormFile file)
         {
+            // /Users/richie/RiderProjects/rabbit/AspNote/wwwroot/images/upload
             // var path = Path.Combine("Users/richie/RiderProjects/rabbit/AspNote/wwwroot", @"images/upload");
-            string path = Path.Combine(_webHostEnvironment.WebRootPath, @"images/upload");
+            var path = Path.Combine(_webHostEnvironment.WebRootPath, @"images/upload");
             var fileName = file.FileName; // orginal file name !
             using (var fileStream = new FileStream(Path.Combine(path, fileName), FileMode.Create))
             {
                 file.CopyTo(fileStream);
             }  
-            // return Ok(new {file=Path.Combine(path, fileName), success = true });
+            // return Ok(new {file= .Combine(path, fileName), success = true });
             return Ok(new {file="/images/upload/" + fileName, success = true });
         }
     }
-}
+}  

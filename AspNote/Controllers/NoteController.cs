@@ -92,7 +92,8 @@ namespace AspNote.Controllers
             {
                 return RedirectToAction("Login", "Account");
             }
-            return View();
+
+            return RedirectToAction("Index", "Note");
         }
     }
 }
