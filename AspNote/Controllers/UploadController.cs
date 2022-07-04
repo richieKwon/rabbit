@@ -24,7 +24,7 @@ namespace AspNote.Controllers
         {
             _webHostEnvironment = webHostEnvironment;
         }
-        
+         
 
         // http://www.example.com/Upload/ImageUpload 
         // http://www.example.com/api/upload
@@ -38,6 +38,7 @@ namespace AspNote.Controllers
             {
                 file.CopyTo(fileStream);
             }  
+            // return Ok(new {file=Path.Combine(path, fileName), success = true });
             return Ok(new {file="/images/upload/" + fileName, success = true });
         }
     }
