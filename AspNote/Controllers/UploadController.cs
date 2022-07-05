@@ -24,20 +24,21 @@ namespace AspNote.Controllers
         {
             _webHostEnvironment = webHostEnvironment;
         }
-         
+           
 
         // http://www.example.com/Upload/ImageUpload 
         // http://www.example.com/api/upload
         [HttpPost, Route("note/api/upload")]
-        public IActionResult ImageUpload(IFormFile file)
+        public async Task<IActionResult> ImageUpload(IFormFile file)
         {
             // /Users/richie/RiderProjects/rabbit/AspNote/wwwroot/images/upload
             // var path = Path.Combine("Users/richie/RiderProjects/rabbit/AspNote/wwwroot", @"images/upload");
             var path = Path.Combine(_webHostEnvironment.WebRootPath, @"images/upload");
-            var fileName = file.FileName; // orginal file name !
+            var fileFullName = file.FileName.Split('.'); // orginal file name !
+            var fileName = $"{Guid.NewGuid()}.{fileFullName[1]}";
             using (var fileStream = new FileStream(Path.Combine(path, fileName), FileMode.Create))
             {
-                file.CopyTo(fileStream);
+                await file.CopyToAsync(fileStream);
             }  
             // return Ok(new {file= .Combine(path, fileName), success = true });
             return Ok(new {file="/images/upload/" + fileName, success = true });
